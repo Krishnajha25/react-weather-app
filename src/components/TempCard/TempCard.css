@@ -26,15 +26,22 @@
 }
 
 .icons-img{
-    width: 30px;   
+    width: 30px; 
+    margin: 0.5rem;  
 }
 
 .day{
     font-weight: bold;
+    margin-bottom: .2rem;
 }
 
 .temp{
     color: #bebebe;
+}
+
+.weather{
+    color: #bebebe;
+    font-weight: 500;
 }
 
 .firstTemp{

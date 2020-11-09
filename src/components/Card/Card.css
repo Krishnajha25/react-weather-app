@@ -6,7 +6,7 @@
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 25px;
+    /* justify-content: center; */
+    align-items: baseline;
+    padding: 15px 20px;
 }

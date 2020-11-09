@@ -1,5 +1,4 @@
 import React from 'react'
-import Icon from '@material-ui/core/Icon'
 import './Header.css'
 
 function Header() {
