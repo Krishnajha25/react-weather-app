@@ -1,12 +1,12 @@
 .card_container{
     height: 400px;
     width: 100%;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.25);
+    box-shadow: var(--shadow1);
     border-radius: 10px;
     margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: baseline;
     padding: 15px 20px;
+}
+
+.lineChartContainer{
+    overflow: scroll;
 }
