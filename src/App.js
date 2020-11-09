@@ -4,6 +4,11 @@ import Hours from './components/Hours/Hours'
 import Card from './components/Card/Card'
 
 function App() {
+
+  navigator.geolocation.getCurrentPosition((position) => {
+    console.log(position)
+  })
+
   return (
     <div className="container">
       <Header />

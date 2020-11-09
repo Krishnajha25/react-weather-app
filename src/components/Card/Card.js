@@ -7,6 +7,7 @@ import LineChart from '../LineChart/LineChart'
 import PressureHumidity from '../PressureHumidity/PressureHumidity'
 
 function Card() {
+
     return (
         <div className="card_container">
             <Temperature />
