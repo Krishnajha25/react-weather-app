@@ -1,0 +1,32 @@
+.temp_card{
+    height: 120px;
+    background: #fafafa;
+    margin-right: 10px;
+    flex: 0 0 80px;
+}
+
+.content{
+    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.icons-img{
+    width: 30px;   
+}
+
+.day{
+    font-weight: bold;
+}
+
+.temp{
+    color: #bebebe;
+}
+
+.firstTemp{
+    color: #111;
+    margin-right: 10px;
+    font-weight: 500;
+}
