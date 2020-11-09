@@ -36,5 +36,17 @@ input[type="text"]{
 }
 
 input[type="text"]:focus{
-    outline: #00a6fa;
+    outline: none;
+    box-shadow: 0 0 1px 2px var(--primary);
+}
+
+.search_result_container{
+    background: #fff;
+    box-shadow: var(--shadow1);
+    /* position: absolute; */
+    top: 110%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    border-radius: 8px;
 }

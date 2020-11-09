@@ -19,6 +19,8 @@ body {
   font-family: 'Roboto', sans-serif;;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-width: 850px;
+  margin: auto;
 }
 
 code {
