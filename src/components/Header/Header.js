@@ -17,7 +17,7 @@ class Header extends Component{
                 const filteredCities = cities.filter(city => city.name.substring(0, this.props.search.length).toLowerCase() === this.props.search.toLowerCase());
                 const sliceresults = filteredCities.slice(0,5);
                 this.setState({cityTemp: []});
-                const cityTempArray = sliceresults.map((result, index) => {
+                sliceresults.map((result) => {
                     axios.get("https://api.openweathermap.org/data/2.5/weather?q=" + result.name + "&appid=" + this.props.appid + "&units=metric")
                     .then(res=>{
                         
