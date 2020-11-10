@@ -81,7 +81,7 @@ class App extends Component{
 
     this.setState({
       [name] : value,
-      showSuggestion : true
+      showSuggestion : value.length > 0
     },);
   }
 
@@ -139,6 +139,7 @@ class App extends Component{
     return (    
       <div className="container">
         <Header appid={this.state.appid} show={this.state.showSuggestion} submit={this.submitSearchHanlder} search={this.state.search} searchHandler={this.searchHandler} />
+        {this.state.showSuggestion && <div className='overlay' onClick={()=> this.setState({showSuggestion : false})} ></div>}
         {hours}
         {card}
       </div>

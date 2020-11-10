@@ -6,6 +6,7 @@ import sun from '../../assets/sun.svg'
 import cloudy from '../../assets/cloudy.svg'
 import smoke from '../../assets/smoke.svg'
 import mist from '../../assets/mist.svg'
+import haze from '../../assets/haze.svg'
 
 function SearchResult(props) {
 
@@ -29,6 +30,9 @@ function SearchResult(props) {
     }else if(props.weatherType === "mist"){
         weatherType = "Mist"
         imgUrl = mist 
+    }else if(props.weatherType === "haze"){
+        weatherType = "Haze"
+        imgUrl = haze 
     }
 
     return (
