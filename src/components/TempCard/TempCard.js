@@ -4,6 +4,8 @@ import cloud from '../../assets/cloud.svg'
 import rain from '../../assets/rain.svg'
 import sun from '../../assets/sun.svg'
 import cloudy from '../../assets/cloudy.svg'
+import smoke from '../../assets/smoke.svg'
+import mist from '../../assets/mist.svg'
 
 function TempCard(props) {
 
@@ -25,6 +27,12 @@ function TempCard(props) {
     }else if(props.weatherType === "overcast clouds" || props.weatherType === "few clouds" || props.weatherType === "broken clouds"){
         weatherType = "Cloudy"
         imgUrl = cloudy
+    }else if(props.weatherType === "smoke"){
+        weatherType = "Smoke"
+        imgUrl = smoke 
+    }else if(props.weatherType === "mist"){
+        weatherType = "Mist"
+        imgUrl = mist 
     }
 
     return (
