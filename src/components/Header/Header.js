@@ -18,7 +18,7 @@ class Header extends Component{
                 const sliceresults = filteredCities.slice(0,5);
                 this.setState({cityTemp: []});
                 sliceresults.map((result) => {
-                    axios.get("https://api.openweathermap.org/data/2.5/weather?q=" + result.name + "&appid=" + this.props.appid + "&units=metric")
+                  return  axios.get("https://api.openweathermap.org/data/2.5/weather?q=" + result.name + "&appid=" + this.props.appid + "&units=metric")
                     .then(res=>{
                         
                         this.setState(prevState => {
