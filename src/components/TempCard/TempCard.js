@@ -22,7 +22,7 @@ function TempCard(props) {
     }else if(props.weatherType === "light rain"){
         weatherType = "Drizzle"
         imgUrl = rain
-    }else if(props.weatherType === "overcast clouds" || props.weatherType === "few clouds"){
+    }else if(props.weatherType === "overcast clouds" || props.weatherType === "few clouds" || props.weatherType === "broken clouds"){
         weatherType = "Cloudy"
         imgUrl = cloudy
     }
@@ -30,11 +30,12 @@ function TempCard(props) {
     return (
         <div className="temp_card">
             <input 
-            className="selectDay" 
-            type="radio" 
-            name="inputR" 
-            id="inputR" 
-            onClick={() => props.click(props.date.substring(0, 10))}/>
+                className="selectDay" 
+                type="radio" 
+                name="inputR" 
+                id="inputR" 
+                onClick={() => props.click(props.date.substring(0, 10))}
+            />
             <div className="content">
                 <span className="day">{day}</span>
                 <span className="temp">

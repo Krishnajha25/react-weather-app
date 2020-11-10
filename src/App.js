@@ -13,11 +13,15 @@ class App extends Component{
     selectedDay : null,
     search: "",
     showSuggestion: false,
-    appid : "e29e8581dafca8c0d5dfaceebb8fe05a"
+    appid : "1b2c55e03f592c967fa1eda2eae07ef4"
   }
 
+  // headers = {
+  //   "Retry-After": 3600
+  // }
+
   componentDidMount = () => {
-     
+    
     navigator.geolocation.getCurrentPosition((position) => {
       this.setState({
         positionCoord : {
@@ -37,11 +41,12 @@ class App extends Component{
 
     axios.get("https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + this.state.appid + "&units=metric")
     .then(res=> {
-      const selectedDay = res.data["list"][0].dt_txt.substring(0, 10);
-      // console.log(res)
+      const date = new Date().toLocaleDateString().split("/");
+      const newDate = [date[2], date[1], date[0]].join("-");
+      
       this.setState({
         weatherData : res.data,
-        selectedDay: selectedDay
+        selectedDay: newDate
       });
     })
     .catch(error => console.log(error));
@@ -52,11 +57,12 @@ class App extends Component{
     if(prevState.positionCoord === null && this.state.positionCoord !==null){
       axios.get("https://api.openweathermap.org/data/2.5/forecast?lat=" + this.state.positionCoord.lat + "&lon=" + this.state.positionCoord.lon + "&appid=" + this.state.appid + "&units=metric")
       .then(res=> {
-        const selectedDay = res.data["list"][0].dt_txt.substring(0, 10);
-        // console.log(res)
+        const date = new Date().toLocaleDateString().split("/");
+        const newDate = [date[2], date[1], date[0]].join("-");
+
         this.setState({
           weatherData : res.data,
-          selectedDay: selectedDay
+          selectedDay: newDate
         });
       })
       .catch(error => console.log(error));
@@ -79,17 +85,19 @@ class App extends Component{
     },);
   }
 
+
   submitSearchHanlder = (cityName, stateName) => {
 
     this.setState({search: cityName + ", " + stateName});
 
     axios.get("https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + this.state.appid + "&units=metric")
       .then(res=> {
-        const selectedDay = res.data["list"][0].dt_txt.substring(0, 10);
-        console.log(res)
+        const date = new Date().toLocaleDateString().split("/");
+        const newDate = [date[2], date[1], date[0]].join("-");
+        
         this.setState({
           weatherData : res.data,
-          selectedDay: selectedDay,
+          selectedDay: newDate,
           showSuggestion : false
         });
       })
@@ -103,12 +111,16 @@ class App extends Component{
 
     let hoursArray = [];
     if(this.state.weatherData && this.state.selectedDay){
+      console.log(this.state.weatherData);
+      console.log(this.state.selectedDay);
+      
       const list = this.state.weatherData["list"];
-      const days = [0, 8, 16, 24, 32];
+      const days = [3, 11, 19, 27, 35];
       for(let day of days){
         hoursArray.push({
           date: list[day].dt_txt,
           maxTemp : list[day].main.temp_max,
+          currTemp : list[day].main.temp,
           minTemp : list[day].main.temp_min,
           weatherTypeIcon : list[day].weather[0].icon,
           weatherType : list[day].weather[0].description
@@ -126,7 +138,7 @@ class App extends Component{
 
     return (    
       <div className="container">
-        <Header show={this.state.showSuggestion} submit={this.submitSearchHanlder} search={this.state.search} searchHandler={this.searchHandler} />
+        <Header appid={this.state.appid} show={this.state.showSuggestion} submit={this.submitSearchHanlder} search={this.state.search} searchHandler={this.searchHandler} />
         {hours}
         {card}
       </div>

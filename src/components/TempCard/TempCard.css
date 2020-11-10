@@ -1,9 +1,10 @@
 .temp_card{
     height: 120px;
-    background: #fafafa;
+    background: #ffffff;
     margin-right: 10px;
-    flex: 0 0 80px;
+    flex: 0 0 90px;
     position: relative;
+    /* border: 2px solid var(--blue); */
 }
 
 .selectDay{
@@ -13,11 +14,18 @@
     height: 100%;
     z-index: 1;
     opacity: 0;
-    border: 1px solid #111;
+}
+
+.selectDay:checked .temp_card{
+    border: 1px solid var(--blue);
 }
 
 input[type="radio"]:checked{
     box-shadow: 0 0 1px 2px var(--blue);
+}
+
+input[type="radio"]:checked .temp_card{
+    border: 1px solid var(--blue);
 }
 
 .content{

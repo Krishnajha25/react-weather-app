@@ -20,6 +20,7 @@ function Hours(props) {
     return (
         <div className="hours_container">
             {hours}
+            {hours}
         </div>
     )
 }

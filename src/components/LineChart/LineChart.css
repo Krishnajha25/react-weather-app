@@ -5,3 +5,7 @@
 .recharts-cartesian-grid-vertical line{
     stroke-dasharray: none;
 }
+
+.recharts-cartesian-grid-vertical line{
+    display: block;
+}

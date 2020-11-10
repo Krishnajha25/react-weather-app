@@ -21,7 +21,7 @@ function Graph2(props) {
         <div className="graph2_container">
             <SunTime sunrise={sunriseTime} sunset={sunsetTime } />
             <div className="sunset_rise_container">
-                {/* <Graph1 /> */}
+                <Graph1 />
             </div>
         </div>
     )

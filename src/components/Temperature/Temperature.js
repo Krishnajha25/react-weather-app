@@ -8,7 +8,7 @@ function Temperature(props) {
 
     return (
         <div className="temperature_container">
-            <h1 className="temperature_temp">{props.currTemp}&#176;C</h1>
+            <h1 className="temperature_temp">{ Math.ceil(props.currTemp)}&#176;C</h1>
             
             <img src={cloud} alt=""/>
 

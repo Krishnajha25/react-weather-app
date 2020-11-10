@@ -1,30 +1,22 @@
 import React, { PureComponent } from 'react';
 import {
-  AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
+  AreaChart, Area, XAxis, CartesianGrid,
 } from 'recharts';
 
+import './Graph1.css'
+
 const data = [
+  
   {
-    name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
+    name: '5am', uv: -1000, pv: 9800
   },
   {
-    name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
+    name: '2am', uv: 1000, pv: 3908
   },
   {
-    name: 'Page C', uv: -1000, pv: 9800, amt: 2290,
+    name: '6pm', uv: -1000, pv: 4800
   },
-  {
-    name: 'Page D', uv: 500, pv: 3908, amt: 2000,
-  },
-  {
-    name: 'Page E', uv: -2000, pv: 4800, amt: 2181,
-  },
-  {
-    name: 'Page F', uv: -250, pv: 3800, amt: 2500,
-  },
-  {
-    name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
-  },
+  
 ];
 
 const gradientOffset = () => {
@@ -49,24 +41,22 @@ export default class Graph1 extends PureComponent {
   render() {
     return (
       <AreaChart
-        width={500}
-        height={250}
+        width={500 }
+        height={180}
         data={data}
         margin={{
-          top: 10, right: 30, left: 0, bottom: 0,
+          top: 10, right: 30, left: 30, bottom: 0,
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
         <defs>
           <linearGradient id="splitColor" x1="0" y1="0" x2="0" y2="1">
-            <stop offset={off} stopColor="green" stopOpacity={1} />
-            <stop offset={off} stopColor="red" stopOpacity={1} />
+            <stop offset={off} stopColor="#fdfd78" stopOpacity={1} />
+            <stop offset={off} stopColor="#111" stopOpacity={1} />
           </linearGradient>
         </defs>
-        <Area type="monotone" dataKey="uv" stroke="#000" fill="url(#splitColor)" />
+        <Area type="monotone" dataKey="uv" stroke="#acac16" fill="url(#splitColor)" />
       </AreaChart>
     );
   }

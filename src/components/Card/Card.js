@@ -14,7 +14,7 @@ function Card(props) {
         return hourDate <= currDate;
     });
 
-    // console.log(lessHours)
+    console.log(lessHours)
 
     const currentTimeData = lessHours[lessHours.length - 1];
 
@@ -42,6 +42,7 @@ function Card(props) {
             <div className="lineChartContainer">
                 <LineChart data={graphData} />
             </div>
+            
             <PressureHumidity pressure={pressure} humidity={humidity} />
             <Graph2 sunrise={props.sunrise} sunset={props.sunset} timezone={props.timezone} />
         </div>
