@@ -1,6 +1,7 @@
 import React from 'react'
 import './Graph2.css'
 import SunTime from '../SunRisetSet/SunTime'
+import Graph1 from '../Graph1/Graph1'
 
 function Graph2(props) {
 
@@ -16,13 +17,12 @@ function Graph2(props) {
     var minutesSunset = "0" + dateSunset.getMinutes();
     var sunsetTime = hoursSunset + ':' + minutesSunset.substr(-2);
 
-
-    // console.log(newTime)
-    // console.log(new Date(props.sunset).time())
-
     return (
         <div className="graph2_container">
             <SunTime sunrise={sunriseTime} sunset={sunsetTime } />
+            <div className="sunset_rise_container">
+                {/* <Graph1 /> */}
+            </div>
         </div>
     )
 }

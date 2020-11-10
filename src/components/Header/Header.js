@@ -6122,8 +6122,8 @@ function Header(props) {
         
         // console.log(cities);
         
-        const filteredCities = cities.filter(city => city.name.substring(0, props.search.length) === props.search);
-        console.log(filteredCities);
+        const filteredCities = cities.filter(city => city.name.substring(0, props.search.length).toLowerCase() === props.search.toLowerCase());
+        // console.log(filteredCities);
         const sliceresults = filteredCities.slice(0,5);
         searchRes = sliceresults.map(result => {
 

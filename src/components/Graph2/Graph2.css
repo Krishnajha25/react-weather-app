@@ -3,3 +3,8 @@
     height: 150px;
     background: #f3f3f3;
 }
+
+.sunset_rise_container{
+    width: 100%;
+    /* overflow: scroll; */
+}
