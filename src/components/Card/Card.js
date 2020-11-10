@@ -2,24 +2,50 @@ import React from 'react'
 import './Card.css'
 import Temperature from '../Temperature/Temperature'
 // import Graph1 from '../Graph1/Graph1'
-// import Graph2 from '../Graph2/Graph2'
+import Graph2 from '../Graph2/Graph2'
 import LineChart from '../LineChart/LineChart'
 import PressureHumidity from '../PressureHumidity/PressureHumidity'
 
-function Card() {
+function Card(props) {
+
+    const lessHours = props.dayInfo.filter(hourInfo => {
+        const hourDate = new Date(hourInfo.dt_txt).getHours()
+        const currDate = new Date().getHours();
+        return hourDate <= currDate;
+    });
+
+    // console.log(lessHours)
+
+    const currentTimeData = lessHours[lessHours.length - 1];
+
+    const currTemp = currentTimeData.main.temp
+    const weatherTypeDesc = currentTimeData.weather[0].description
+    const pressure = currentTimeData.main.pressure
+    const humidity = currentTimeData.main.humidity
+
+    const graphData = props.dayInfo.map(hourInfo => {
+        
+        const date = new Date(hourInfo.dt_txt);
+        const xData = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const yData = hourInfo.main.temp;
+        
+        return {
+            "name": xData,
+            "Temp": yData
+        }
+    });
 
     return (
         <div className="card_container">
-            <Temperature />
+            <Temperature currTemp={currTemp} weatherTypeDesc={weatherTypeDesc} />
             
             <div className="lineChartContainer">
-                <LineChart />
+                <LineChart data={graphData} />
             </div>
-            <PressureHumidity />
-            {/* <Graph1 />
-            <Graph2 /> */}
+            <PressureHumidity pressure={pressure} humidity={humidity} />
+            <Graph2 sunrise={props.sunrise} sunset={props.sunset} timezone={props.timezone} />
         </div>
-    )
+    );
 }
 
 export default Card

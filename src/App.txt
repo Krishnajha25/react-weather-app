@@ -1,0 +1,21 @@
+import './App.css';
+import Header from './components/Header/Header'
+import Hours from './components/Hours/Hours'
+import Card from './components/Card/Card.txt'
+
+function App() {
+
+  navigator.geolocation.getCurrentPosition((position) => {
+    console.log(position)
+  })
+
+  return (
+    <div className="container">
+      <Header />
+      <Hours />
+      <Card />
+    </div>
+  );
+}
+
+export default App;
