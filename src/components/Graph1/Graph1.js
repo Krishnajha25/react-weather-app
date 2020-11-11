@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import {
-  AreaChart, Area, XAxis, CartesianGrid,
+  AreaChart, Area, XAxis, CartesianGrid, ResponsiveContainer,
 } from 'recharts';
 
 import './Graph1.css'
@@ -40,24 +40,26 @@ export default class Graph1 extends PureComponent {
 
   render() {
     return (
-      <AreaChart
-        width={500 }
-        height={180}
-        data={data}
-        margin={{
-          top: 10, right: 30, left: 30, bottom: 0,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <defs>
-          <linearGradient id="splitColor" x1="0" y1="0" x2="0" y2="1">
-            <stop offset={off} stopColor="#fdfd78" stopOpacity={1} />
-            <stop offset={off} stopColor="#111" stopOpacity={1} />
-          </linearGradient>
-        </defs>
-        <Area type="monotone" dataKey="uv" stroke="#acac16" fill="url(#splitColor)" />
-      </AreaChart>
+      <ResponsiveContainer height={200} width="100%" >
+        <AreaChart
+          // width={500 }
+          // height={180}
+          data={data}
+          margin={{
+            top: 10, right: 30, left: 30, bottom: 0,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <defs>
+            <linearGradient id="splitColor" x1="0" y1="0" x2="0" y2="1">
+              <stop offset={off} stopColor="#fdfd78" stopOpacity={1} />
+              <stop offset={off} stopColor="#111" stopOpacity={1} />
+            </linearGradient>
+          </defs>
+          <Area type="monotone" dataKey="uv" stroke="#acac16" fill="url(#splitColor)" />
+        </AreaChart>
+      </ResponsiveContainer>
     );
   }
 }

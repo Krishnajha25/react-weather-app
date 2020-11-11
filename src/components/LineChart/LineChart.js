@@ -22,7 +22,7 @@ export default class LineChartView extends PureComponent {
         <XAxis dataKey="name" />
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
-        <Area type="monotone" dataKey="Temp" dot={{r: 6}} activeDot={{r: 5}} stroke="#00a6fa" strokeWidth="2" fillOpacity={1} fill="url(#colorUv)" />
+        <Area type="monotone" dataKey="Temp" dot={{r: 6, stroke: '#00a6fa', fill: '#fff'}} activeDot={{r: 5}} stroke="#00a6fa" strokeWidth="2" fillOpacity={1} fill="url(#colorUv)" />
       </AreaChart>
     );
   }
